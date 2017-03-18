@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(leftButtonClicked))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(rightButtonClicked))
+        navigationItem.leftBarButtonItems = [UIBarButtonItem(title: "Present", style: .plain, target: self, action: #selector(leftButtonClicked)),
+                                             UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(dismissVC))]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Push", style: .plain, target: self, action: #selector(rightButtonClicked))
     }
     
     func leftButtonClicked() {
@@ -22,15 +23,13 @@ class ViewController: UIViewController {
         present(nc, animated: true, completion: nil)
     }
     
+    func dismissVC() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func rightButtonClicked() {
         navigationController?.pushViewController(ViewController2(), animated: true)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
