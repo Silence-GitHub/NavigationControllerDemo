@@ -12,7 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(leftButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(rightButtonClicked))
+    }
+    
+    func leftButtonClicked() {
+        let nc = NavigationController(rootViewController: ViewController())
+        present(nc, animated: true, completion: nil)
+    }
+    
+    func rightButtonClicked() {
+        navigationController?.pushViewController(ViewController2(), animated: true)
     }
 
     override func didReceiveMemoryWarning() {
