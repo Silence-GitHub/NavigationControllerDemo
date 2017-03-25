@@ -22,11 +22,7 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     // MARK: - UINavigationControllerDelegate
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        if viewControllers.count <= 1 {
-            currentNotRootVC = nil
-        } else {
-            currentNotRootVC = viewController
-        }
+        currentNotRootVC = viewControllers.count <= 1 ? nil : viewController
     }
     
     // MARK: - UIGestureRecognizerDelegate
