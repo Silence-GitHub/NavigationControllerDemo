@@ -23,6 +23,14 @@ class NavigationController: UINavigationController, UINavigationControllerDelega
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         currentNotRootVC = viewControllers.count <= 1 ? nil : viewController
+        /*
+        switch viewController {
+        case is SomeVCClassForbidPopGesture:
+            interactivePopGestureRecognizer?.isEnabled = false
+        default:
+            interactivePopGestureRecognizer?.isEnabled = true
+        }
+         */
     }
     
     // MARK: - UIGestureRecognizerDelegate
